@@ -6,8 +6,9 @@ using namespace std;
 
 int main()
 {
-	Water w("Boloto");
-	w.print();
+	Water w("Boloto"); // get name
+	Water b(Water::Reservoirs::LAKE); // get reservoirs
+	w.print(); // print
 
 	return 0;
 }

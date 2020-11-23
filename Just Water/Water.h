@@ -9,7 +9,7 @@ public:
 
 	void setReservoirs(Reservoirs res);
 	Reservoirs getReservoirs() const;
-	const char* getReservoirStr() const;
+	const char* getReservoirStr() const;		
 
 	void setSize(size_t size) const;
 	const size_t* getSize() const;
@@ -17,7 +17,11 @@ public:
 	void setLong(size_t longs) const;
 	const size_t* getLong() const;
 
-	Water(const char* name, Reservoirs res = Reservoirs::UNDEFINED);
+	//overload
+	Water(const char* name); // 1 - request for name
+	Water(Reservoirs res = Reservoirs::UNDEFINED); // 2 - request for reservoirs
+
+
 	Water();
 	~Water();
 	static size_t getCountWater();

@@ -32,11 +32,55 @@ const char* Water::getReservoirStr() const
 	return nameRes[(int)res];
 }
 
-Water::Water(const char* name, Reservoirs res)
+void Water::setSize(size_t size) const
+{
+	if (size >= 1 && size <= 80)
+	{
+		size = sizeWater;
+	}
+	else {
+		cout << "ERROR!!! TRY AGAIN" << endl;
+	}
+}
+
+const size_t* Water::getSize() const
+{
+	return &sizeWater; // adress
+}
+
+void Water::setLong(size_t longs) const
+{
+	if (longs >= 1 && longs <= 7)
+	{
+		longs = longWater;
+	}
+	else {
+		cout << "ERROR!!! TRY AGAIN" << endl;
+	}
+}
+
+const size_t*  Water::getLong() const
+{
+	return &longWater;
+}
+
+
+
+// request
+Water::Water(const char* name)
 {
 	setName(name);
+}
+
+Water::Water(Reservoirs res)
+{
 	setReservoirs(res);
 }
+
+
+
+
+
 
 Water::Water()
 	: Water("error") // no name
