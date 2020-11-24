@@ -24,11 +24,9 @@ const char* Water::getName() const
 	return name;
 }
 
-
-
 const char* Water::getReservoirStr() const
 {
-	static const char* nameRes[]{ "Lake", "Sea", "River", "Undefined" };
+	static const char* nameRes[]{ "Lake", "Sea", "Ocean","River","Boloto", "Undefined" };
 	return nameRes[(int)res];
 }
 
@@ -72,8 +70,6 @@ size_t Water::getQtyWater()
 	return countWater;
 }
 
-
-
 // request
 Water::Water(const char* name)
 {
@@ -82,13 +78,12 @@ Water::Water(const char* name)
 
 Water::Water(Reservoirs res)
 {
-	setReservoirs(res);
+	setName(name);
+	setSize(sizeWater);
+	setLong(longWater);
+	setDepth(maxDepth);
+	
 }
-
-
-
-
-
 
 Water::Water()
 	: Water("error") // no name
@@ -96,22 +91,21 @@ Water::Water()
 
 Water::~Water()
 {
-	cout << (name != nullptr ? name : "Empty") << endl;
+	cout << (name != nullptr ? name : "empty") << endl;
 	if (name != nullptr)
 	{
 		delete[] name;
 		name = nullptr;
 	}
-	// max size, long
 }
 
 void Water::print() const
 {
 	cout << "Name: " << name << endl;
-	cout << "Type Water: " << getQtyWater() << endl;
+	cout << "Type Water: " << getReservoirStr() << endl;
 	cout << "Size: " << sizeWater << endl;
 	cout << "Long: " << longWater << endl;
 	cout << "MaxDepth: " << maxDepth << endl;
 	cout << "Count Water Areas: " << countWater << endl;
-	
+	cout << endl;
 }

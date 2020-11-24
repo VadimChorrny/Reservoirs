@@ -43,6 +43,8 @@ private:
 	size_t maxDepth = 0;
 	Reservoirs type;
 	Reservoirs res = Reservoirs::UNDEFINED;
+
+
 };
 static size_t countWater;
 
