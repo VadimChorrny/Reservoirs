@@ -2,20 +2,29 @@
 class Water
 {
 public:
-	enum class Reservoirs  { LAKE, SEA, RIVER , UNDEFINED };
+	enum class Reservoirs { LAKE, SEA, RIVER, UNDEFINED };
 
 	void setName(const char* name);
 	const char* getName() const;
 
 	void setReservoirs(Reservoirs res);
 	Reservoirs getReservoirs() const;
-	const char* getReservoirStr() const;		
+	const char* getReservoirStr() const;
 
-	void setSize(size_t size) const;
-	const size_t* getSize() const;
+	// setters for info reservoirs
 
-	void setLong(size_t longs) const;
-	const size_t* getLong() const;
+	void setSize(const size_t& sizeWater);
+	void setLong(const size_t& longWater);
+	void setDepth(const size_t& maxDepth);
+	void setTypeReservoirs(const Reservoirs& type);
+
+	// getters for reservoirs
+	const size_t getSize() const;
+	const size_t getLong() const;
+	const size_t getDepth() const;
+	static size_t getQtyWater();
+
+
 
 	//overload
 	Water(const char* name); // 1 - request for name
@@ -32,13 +41,12 @@ private:
 	size_t sizeWater = 0;
 	size_t longWater = 0;
 	size_t maxDepth = 0;
+	Reservoirs type;
 	Reservoirs res = Reservoirs::UNDEFINED;
-	static size_t countWater;	
+};
+static size_t countWater;
 
-
-}; 
-
-inline size_t Water::getCountWater() 
+inline size_t Water::getCountWater()
 {
 	return countWater;
 }

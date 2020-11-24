@@ -32,36 +32,44 @@ const char* Water::getReservoirStr() const
 	return nameRes[(int)res];
 }
 
-void Water::setSize(size_t size) const
+void Water::setSize(const size_t& sizeWater)
 {
-	if (size >= 1 && size <= 80)
-	{
-		size = sizeWater;
-	}
-	else {
-		cout << "ERROR!!! TRY AGAIN" << endl;
-	}
+	this->sizeWater = sizeWater;
 }
 
-const size_t* Water::getSize() const
+void Water::setLong(const size_t& longWater)
 {
-	return &sizeWater; // adress
+	this->longWater = longWater;
 }
 
-void Water::setLong(size_t longs) const
+void Water::setDepth(const size_t& maxDepth)
 {
-	if (longs >= 1 && longs <= 7)
-	{
-		longs = longWater;
-	}
-	else {
-		cout << "ERROR!!! TRY AGAIN" << endl;
-	}
+	this->maxDepth = maxDepth;
 }
 
-const size_t*  Water::getLong() const
+void Water::setTypeReservoirs(const Reservoirs& type)
 {
-	return &longWater;
+	this->type = type;
+}
+
+const size_t Water::getSize() const
+{
+	return sizeWater;
+}
+
+const size_t Water::getLong() const
+{
+	return longWater;
+}
+
+const size_t Water::getDepth() const
+{
+	return maxDepth;
+}
+
+size_t Water::getQtyWater()
+{
+	return countWater;
 }
 
 
@@ -99,12 +107,11 @@ Water::~Water()
 
 void Water::print() const
 {
-	cout << "Name :\t" << name << endl;
-	cout << "Gender :\t" << getReservoirStr() << endl;
-	/*for (size_t i = 0; i < qtyMarks; i++)
-	{
-		cout << marks[i] << "\t";
-	}*/
-	cout << endl;
-	//cout << "Average mark : " << this->getAverageMark() << endl;
+	cout << "Name: " << name << endl;
+	cout << "Type Water: " << getQtyWater() << endl;
+	cout << "Size: " << sizeWater << endl;
+	cout << "Long: " << longWater << endl;
+	cout << "MaxDepth: " << maxDepth << endl;
+	cout << "Count Water Areas: " << countWater << endl;
+	
 }
